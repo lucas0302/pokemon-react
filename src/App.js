@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Pokemon from "./components/Pokemon";
 
-function App() {
+export default function App({ pokemons }) {
+  const [selecionados, setSelecionados] = useState([]);
+
+  // Cada pokémon possui as propriedades nome e número
+  // Ex: { nome: "bulbasaur", numero: 1 }
+
+  function clicouCard() {
+    // implementar essa função e chamar ela no card
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Escolha seu time de 3 pokémons</h1>
+
+      <ul className="lista">
+        {pokemons.map((p) => (
+          // adicionar clique e classe CSS no li (nome da classe: selecionado)
+          <li className={`pokecard`}>
+            <Pokemon pokemon={p} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
-
-export default App;

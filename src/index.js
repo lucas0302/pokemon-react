@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./styles/reset.css";
+import "./styles/styles.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const pokemons = [
+  { nome: "bulbasaur", numero: 1 },
+  { nome: "charmander", numero: 4 },
+  { nome: "squirtle", numero: 7 },
+  { nome: "ekans", numero: 23 },
+  { nome: "pikachu", numero: 25 },
+  { nome: "jigglypuff", numero: 39 },
+  { nome: "meowth", numero: 52 },
+  { nome: "growlithe", numero: 58 },
+  { nome: "geodude", numero: 74 }
+];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App pokemons={pokemons} />, document.querySelector("#root"));
