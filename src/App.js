@@ -7,8 +7,12 @@ export default function App({ pokemons }) {
   // Cada pokémon possui as propriedades nome e número
   // Ex: { nome: "bulbasaur", numero: 1 }
 
-  function clicouCard() {
-    // implementar essa função e chamar ela no card
+  function clicouCard(pokemon) {
+    const estaSelecionado = selecionados.includes(pokemon);
+    
+    if (!estaSelecionado && selecionados.length < 3) {
+      setSelecionados([...selecionados, pokemon]);
+    }
   }
 
   return (
@@ -18,7 +22,7 @@ export default function App({ pokemons }) {
       <ul className="lista">
         {pokemons.map((p) => (
           // adicionar clique e classe CSS no li (nome da classe: selecionado)
-          <li className={`pokecard`}>
+          <li key={p.nome} onClick={() => clicouCard(p.nome)} className={`pokecard ${selecionados.includes(p.nome) ? "selecionado" : ""}`}>
             <Pokemon pokemon={p} />
           </li>
         ))}
